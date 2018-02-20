@@ -7,7 +7,7 @@ const HEX_REGEX = /^0x[0-9A-F]*$/i;
 
 export const assert = {
     isBigNumber(variableName: string, value: BigNumber): void {
-        const isBigNumber = _.isObject(value) && (value as any).isBigNumber;
+        const isBigNumber = _.isObject(value) && value instanceof BigNumber;
         this.assert(isBigNumber, this.typeAssertionMessage(variableName, 'BigNumber', value));
     },
     isValidBaseUnitAmount(variableName: string, value: BigNumber) {
