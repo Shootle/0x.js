@@ -28,6 +28,8 @@ export interface ContractNetworkData {
     address?: string;
     constructor_args?: string;
     updated_at: number;
+    source_map: string;
+    source_map_runtime: string;
 }
 
 export interface SolcErrors {
