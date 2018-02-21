@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.3.0 - _TBD, 2018_
+
+    * Remove `JSONRPCPayload` (#TBD)
+
 ## v0.2.1 - _February 9, 2018_
 
     * Fix publishing issue where .npmignore was not properly excluding undesired content (#389)
