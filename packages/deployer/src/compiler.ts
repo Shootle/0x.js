@@ -214,6 +214,8 @@ export class Compiler {
         const contractIdentifier = `${fileName}:${contractName}`;
         const abi: Web3.ContractAbi = JSON.parse(compiled.contracts[contractIdentifier].interface);
         const unlinked_binary = `0x${compiled.contracts[contractIdentifier].bytecode}`;
+        const sourceMap = compiled.contracts[contractIdentifier].srcmap;
+        const sourceMapRuntime = compiled.contracts[contractIdentifier].srcmapRuntime;
         const updated_at = Date.now();
         const contractNetworkData: ContractNetworkData = {
             solc_version: contractSpecificSourceData.solcVersion,
@@ -223,6 +225,8 @@ export class Compiler {
             abi,
             unlinked_binary,
             updated_at,
+            source_map: sourceMap,
+            source_map_runtime: sourceMapRuntime,
         };
 
         let newArtifact: ContractArtifact;
