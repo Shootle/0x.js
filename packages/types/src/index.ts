@@ -26,11 +26,6 @@ export interface TransactionReceipt {
     logs: Web3.LogEntry[];
 }
 
-export interface JSONRPCPayload {
-    params: any[];
-    method: string;
-}
-
 export enum AbiType {
     Function = 'function',
     Constructor = 'constructor',
