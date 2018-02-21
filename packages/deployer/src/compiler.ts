@@ -1,3 +1,4 @@
+import { promisify } from '@0xproject/utils';
 import * as ethUtil from 'ethereumjs-util';
 import * as _ from 'lodash';
 import * as path from 'path';
@@ -186,9 +187,7 @@ export class Compiler {
         }
 
         const fullSolcVersion = binPaths[contractSpecificSourceData.solcVersion];
-        const solcBinPath = `./solc/solc_bin/${fullSolcVersion}`;
-        const solcBin = require(solcBinPath);
-        const solcInstance = solc.setupMethods(solcBin);
+        const solcInstance = await promisify<solc.SolcInstance>(solc.loadRemoteVersion)(fullSolcVersion);
 
         utils.consoleLog(`Compiling ${fileName}...`);
         const source = this._contractSources[fileName];
