@@ -5,7 +5,7 @@ import ethUtil = require('ethereumjs-util');
 import HDNode = require('hdkey');
 import * as _ from 'lodash';
 import Semaphore from 'semaphore-async-await';
-import Web3 = require('web3');
+import * as Web3 from 'web3';
 
 import {
     LedgerEthereumClient,

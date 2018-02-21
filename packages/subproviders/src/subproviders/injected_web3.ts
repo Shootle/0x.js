@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import Web3 = require('web3');
+import * as Web3 from 'web3';
 
 /*
  * This class implements the web3-provider-engine subprovider interface and forwards

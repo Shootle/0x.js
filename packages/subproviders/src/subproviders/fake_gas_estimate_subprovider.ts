@@ -1,4 +1,4 @@
-import { JSONRPCPayload } from '@0xproject/types';
+import * as Web3 from 'web3';
 
 /*
  * This class implements the web3-provider-engine subprovider interface and returns
@@ -15,7 +15,11 @@ export class FakeGasEstimateSubprovider {
     }
     // This method needs to be here to satisfy the interface but linter wants it to be static.
     // tslint:disable-next-line:prefer-function-over-method
-    public handleRequest(payload: JSONRPCPayload, next: () => void, end: (err: Error | null, result: any) => void) {
+    public handleRequest(
+        payload: Web3.JSONRPCRequestPayload,
+        next: () => void,
+        end: (err: Error | null, result: any) => void,
+    ) {
         switch (payload.method) {
             case 'eth_estimateGas':
                 end(null, this._constantGasAmount);
